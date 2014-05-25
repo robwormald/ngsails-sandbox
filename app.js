@@ -55,7 +55,7 @@ var herokuEnv = require('heroku-env');
 
 herokuEnv('ngsails', function(err, env) {
 
-    console.log(env)
+
     // Start server
     sails.lift(rc('sails'));
 

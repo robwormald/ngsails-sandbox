@@ -19,17 +19,22 @@
  * http://links.sailsjs.org/docs/config/connections
  */
 
+var parseDbUrl = require("parse-database-url");
 
+var database = parseDbUrl(process.env["DATABASE_URL"] || require('./local.js').database_url);
 
 module.exports.connections = {
 
 
   datastore: {
     adapter: 'sails-postgresql',
-    host: 'YOUR_POSTGRES_SERVER_HOSTNAME_OR_IP_ADDRESS',
-    user: 'YOUR_POSTGRES_USER',
-    password: 'YOUR_POSTGRES_PASSWORD',
-    database: 'YOUR_POSTGRES_DB'
+    host: database.host,
+    port: database.port,
+    user: database.user,
+    password: database.password,
+      ssl: true,
+    database: database.database,
+
   },
 
 

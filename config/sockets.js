@@ -10,6 +10,10 @@
  * http://links.sailsjs.org/docs/config/sockets
  */
 
+var parseDbUrl = require("parse-database-url");
+
+var keystore = parseDbUrl(process.env["REDISTOGO_URL"] || require('./local.js').redis_url);
+
 module.exports.sockets = {
 
   // This custom onConnect function will be run each time AFTER a new socket connects
@@ -61,16 +65,13 @@ module.exports.sockets = {
   // Sails server with the most available resources. However that means that all room/pubsub/socket
   // processing and shared memory has to be offloaded to a shared, remote messaging queue (usually Redis)
   //
-  // Luckily, Socket.io (and consequently Sails.js) apps support Redis for sockets by default.
-  // To enable a remote redis pubsub server:
-  // adapter: 'redis',
-  // host: '127.0.0.1',
-  // port: 6379,
-  // db: 'sails',
-  // pass: '<redis auth password>'
-  // Worth mentioning is that, if `adapter` config is `redis`,
-  // but host/port is left unset, Sails will try to connect to redis
-  // running on localhost via port 6379
+    host: keystore.host,
+    port: keystore.port,
+    //ttl: <redis session TTL in seconds>,
+    db: keystore.database,
+    pass: keystore.password,
+    prefix: 'pubsub:',
+    ssl: true,
 
 
 

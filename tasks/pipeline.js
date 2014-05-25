@@ -25,7 +25,14 @@ var jsFilesToInject = [
 
   // Dependencies like sails.io.js, jQuery, or Angular
   // are brought in here
-  'js/dependencies/**/*.js',
+   
+    'js/dependencies/angular.js',
+    'js/dependencies/angular-ui-router.js',
+
+    'js/dependencies/sails.io.js',
+    'js/dependencies/ngsails.io.js',
+
+  'js/dependencies/waterline.js',
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
@@ -58,5 +65,5 @@ module.exports.jsFilesToInject = jsFilesToInject.map(function(path) {
   return '.tmp/public/' + path;
 });
 module.exports.templateFilesToInject = templateFilesToInject.map(function(path) {
-  return 'assets/' + path;
+  return path;
 });

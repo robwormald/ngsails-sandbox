@@ -13,12 +13,15 @@ module.exports = function(grunt) {
     ];
 
     grunt.config.set('ngtemplates',{
-        app:        {
-            src:      '**.html',
-            dest:     'template.js',
-            options:  {
-                usemin: 'dist/vendors.js' // <~~ This came from the <!-- build:js --> block
-            }
+        dev:        {
+            cwd:      'assets',
+            src:      require('../pipeline').templateFilesToInject,
+            dest:     './.tmp/public/js/app-templates.js'
+
+        },
+        options: {
+            module: 'app.templates',
+            standalone: true
         }
     });
 

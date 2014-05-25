@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Angular + Waterline + Sails</title>
+
+    <!-- dependencies -->
+
+    <!-- angular + angular-loader: allows us to load async -->
+    <script src="js/dependencies/angular.js"></script>
+    <script src="js/dependencies/angular-loader.js.js"></script>
+    <script src="js/dependencies/angular-ui-router.js.js"></script>
+
+    <!--  sails SDK + angularSails -->
+    <script src="js/dependencies/sails.io.js"></script>
+    <script src="js/dependencies/ngsails.io.js"></script>
+
+    <!-- browserified waterline + ngwaterline plugin -->
+    <script src="js/dependencies/waterline.min.js"></script>
+
+
+    <script src="app.js"></script>
+    <script src="app.config.js"></script>
+    <!-- script src="app.models.js"></script> -->
+</head>
+
+<body>
+
+<div ui-view></div>
+
+</body>
+
+</html>

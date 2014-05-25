@@ -51,13 +51,12 @@ try {
 	}
 }
 
-var herokuEnv = require('heroku-env');
+var dotenv = require('dotenv');
+dotenv.load();
 
-herokuEnv('ngsails', function(err, env) {
 
-
+console.log(process.env)
     // Start server
-    sails.lift(rc('sails'));
+sails.lift(rc('sails'));
 
 
-})

@@ -5,6 +5,7 @@ module.exports = function (grunt) {
 		'copy:dev',
         'ngtemplates:dev',
 		'coffee:dev',
+        'ngAnnotate:build',
         'ngconstant:build'
 	]);
 };

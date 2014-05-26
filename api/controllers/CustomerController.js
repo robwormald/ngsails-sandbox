@@ -1,5 +1,5 @@
 /**
- * UserController.js 
+ * CustomerController.js 
  *
  * @description ::
  * @docs        :: http://sailsjs.org/#!documentation/controllers

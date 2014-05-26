@@ -20,6 +20,9 @@ module.exports = function(grunt) {
 //            }
         },
         build: {
+            files: {
+                './.tmp/public/js/main.js' : ['./assets/js/**/*.js']
+            }
         }
     });
 

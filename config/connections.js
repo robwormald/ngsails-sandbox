@@ -21,7 +21,9 @@
 
 var parseDbUrl = require("parse-database-url");
 
-var database = parseDbUrl(process.env["DATABASE_URL"] || require('./local.js').database_url);
+var database = parseDbUrl(process.env["DATABASE_URL"]);
+var keystore = parseDbUrl(process.env["REDIS_URL"]);
+
 
 module.exports.connections = {
 
@@ -36,6 +38,16 @@ module.exports.connections = {
     database: database.database,
 
   },
+    keystore: {
+        adapter: 'sails-redis',
+        port: keystore.port,
+        host: keystore.host,
+        user: keystore.user,
+        ssl: true,
+        password: keystore.password
+    }
+
+
 
 
   // More adapters:

@@ -1,5 +1,5 @@
 /**
- * Employee.js
+ * Project.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs		:: http://sailsjs.org/#!documentation/models
@@ -8,15 +8,13 @@
 module.exports = {
 
 	attributes: {
-        firstName : 'string',
-        lastName : 'string',
-        employeeNumber : 'string',
-        timelogs : {
-            collection : 'TimeLog',
-            via : 'employee'
+        customer : {
+            model : 'customer'
         },
-
-        user : {model : 'user'}
+        jobs : {
+            collection : 'job',
+            via : 'project'
+        }
 
 	}
 
